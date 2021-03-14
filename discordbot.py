@@ -12,6 +12,11 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
+@client.event
+async def on_voice_state_update(before, after):
+  print("ボイスチャンネルで変化がありました")
+
+client.run(token)
 
 @bot.command()
 async def ping(ctx):
